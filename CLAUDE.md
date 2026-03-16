@@ -17,7 +17,7 @@ Docto is an Australian/New Zealand healthcare telemedicine platform for online v
 feature/<ticket-or-description>  →  staging  →  qat  →  production
 ```
 
-- Always branch from `main`
+- Always branch from `staging`
 - All repos deploy via **GitHub Actions** on push to `staging`, `qat`, or `production` branches
 - **Exception:** `docto-api/scheduled_tasks/` Lambdas deploy via `./deploy-code.sh <env>` (not GH Actions)
 - PR back to `main` after production confirmed

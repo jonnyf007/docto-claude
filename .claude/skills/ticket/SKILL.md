@@ -42,14 +42,14 @@ If no URL is provided, ask the user to paste the Trello card URL.
 
 5. **Confirm with user:** "Does this look right? Should I create the branch?"
 
-6. **On confirmation**, run:
+6. **On confirmation**, run in the appropriate repo(s):
    ```bash
-   git checkout main && git pull && git checkout -b feature/<branch-name>
+   git checkout staging && git pull && git checkout -b feature/<branch-name>
    ```
-   in the appropriate repo(s).
 
 ## Notes
 
-- Branch from `main`, not from other feature branches
+- Always branch from `staging`, not `main`
 - If the card touches multiple repos, suggest separate branches with the same base name
 - Keep branch names short and lowercase with hyphens
+- Keep the Trello card ID in context — the `/pr` skill will use it to post the PR link back to the card

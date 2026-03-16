@@ -1,9 +1,9 @@
 {
   "folders": [
-    { "name": "docto-claude", "path": "./docto-claude" },
-    { "name": "docto-api",    "path": "./docto-api" },
-    { "name": "docto-app",    "path": "./docto-app" },
-    { "name": "docto-nextjs", "path": "./docto-nextjs" }
+    { "name": "docto-claude", "path": "." },
+    { "name": "docto-api",    "path": "../docto-api" },
+    { "name": "docto-app",    "path": "../docto-app" },
+    { "name": "docto-nextjs", "path": "../docto-nextjs" }
   ],
   "settings": {}
 }

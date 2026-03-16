@@ -75,9 +75,20 @@ else
   echo "  ⚠ No skills directory found at $SKILLS_SRC"
 fi
 
-# 5. Check Trello MCP
+# 5. Symlink workspace file to docto/ so all repos are siblings with ./repo paths
+WORKSPACE_LINK="$DOCTO_DIR/docto.code-workspace"
+WORKSPACE_SOURCE="$SCRIPT_DIR/docto.code-workspace"
+
+if [ -L "$WORKSPACE_LINK" ] || [ -f "$WORKSPACE_LINK" ]; then
+  echo "  ✓ docto.code-workspace already at $WORKSPACE_LINK"
+else
+  ln -s "$WORKSPACE_SOURCE" "$WORKSPACE_LINK"
+  echo "  ✓ Symlinked docto.code-workspace → $WORKSPACE_SOURCE"
+fi
+
+# 6. Check Trello MCP
 MCP_CONFIG="$HOME/.claude/mcp.json"
-if [ -f "$MCP_CONFIG" ] && grep -q "trello\|atlassian" "$MCP_CONFIG" 2>/dev/null; then
+if [ -f "$MCP_CONFIG" ] && grep -q "trello\|atlassian" "$MCP_CONFIG" 2>/dev/null ; then
   echo "  ✓ Trello MCP detected in $MCP_CONFIG"
 else
   echo ""
@@ -91,7 +102,7 @@ echo ""
 echo "=== Setup complete! ==="
 echo ""
 echo "Open the multi-repo workspace:"
-echo "  cursor $SCRIPT_DIR/docto.code-workspace"
-echo "  code   $SCRIPT_DIR/docto.code-workspace"
+echo "  cursor $DOCTO_DIR/docto.code-workspace"
+echo "  code   $DOCTO_DIR/docto.code-workspace"
 echo ""
 echo "Available Claude skills: /ticket, /deploy, /pr, /update-context"

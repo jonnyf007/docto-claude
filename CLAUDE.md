@@ -45,6 +45,7 @@ Lambda env var prefix: `STG_`, `QAT_`, `PROD_`.
 - `/deploy [staging|qat|production]` — push to env branch or run deploy-code.sh for lambdas
 - `/pr` — generate PR title/description and run `gh pr create`
 - `/update-context` — suggest edits to CLAUDE.md files based on recent commits
+- `/web-vitals [audit|instrument|deploy-check]` — Web Core Vitals expert for docto-nextjs: audit codebase, add web-vitals tracking, run Lighthouse
 
 ## Shared Conventions
 

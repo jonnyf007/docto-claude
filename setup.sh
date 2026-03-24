@@ -68,8 +68,11 @@ if [ -d "$SKILLS_SRC" ]; then
   mkdir -p "$SKILLS_DST"
   for skill_dir in "$SKILLS_SRC"/*/; do
     skill_name=$(basename "$skill_dir")
-    cp -r "$skill_dir" "$SKILLS_DST/$skill_name"
-    echo "  ✓ Installed skill: /$skill_name"
+    skill_link="$SKILLS_DST/$skill_name"
+    # Remove old copy/symlink and replace with a live symlink
+    rm -rf "$skill_link"
+    ln -s "$skill_dir" "$skill_link"
+    echo "  ✓ Linked skill: /$skill_name → $skill_dir"
   done
 else
   echo "  ⚠ No skills directory found at $SKILLS_SRC"
